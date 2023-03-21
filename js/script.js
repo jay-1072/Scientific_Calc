@@ -22,3 +22,12 @@ function dlt() {
     }
     dis.value = '';
 }
+
+function pop() {
+    if (dis.value == 'Error!' || dis.value == 'Infinity' || dis.value == 'NaN') {
+        dis.value = '';
+    } else {
+        dis.value = dis.value.slice(0, dis.value.length - 1);
+    }
+}
+// **********************************************************************************************
