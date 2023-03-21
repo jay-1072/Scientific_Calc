@@ -52,3 +52,21 @@ function pop() {
     }
 }
 // **********************************************************************************************
+
+function answer() {
+    try {
+        upper.value = dis.value + '=';
+        dis.value = '';
+        let x = upper.value.slice(0, -1);
+        var y = eval(x);
+    } catch {
+        y = 'Error!';
+    }
+
+    let cb = document.getElementById('btn-check');
+    if (cb.checked == true) {
+        dis.value = y.toExponential();
+    } else {
+        dis.value = y;
+    }
+}
