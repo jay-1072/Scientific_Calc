@@ -15,6 +15,69 @@ function display(val) {
 }
 // **********************************************************************************************
 
+
+// INSIDE TRIGONOMETRY
+function sin() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'sin(' + dis.value + ')';
+    if (mode == 'RAD') {
+        dis.value = Math.sin(dis.value);
+    } else {
+        dis.value = Math.sin((dis.value * Math.PI) / 180);
+    }
+}
+
+function cos() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'cos(' + dis.value + ')';
+    if (mode == 'RAD') {
+        dis.value = Math.cos(dis.value);
+    } else {
+        dis.value = Math.cos((dis.value * Math.PI) / 180);
+    }
+}
+
+function tan() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'tan(' + dis.value + ')';
+    if (mode == 'RAD') {
+        dis.value = Math.tan(dis.value);
+    } else {
+        dis.value = Math.tan((dis.value * Math.PI) / 180);
+    }
+}
+
+function sec() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'sec(' + dis.value + ')';
+    if (mode == 'RAD') {
+        dis.value = 1 / Math.cos(dis.value);
+    } else {
+        dis.value = 1 / Math.cos((dis.value * Math.PI) / 180);
+    }
+}
+
+function cosec() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'cosec(' + dis.value + ')';
+    if (mode == 'RAD') {
+        dis.value = 1 / Math.sin(dis.value);
+    } else {
+        dis.value = 1 / Math.sin((dis.value * Math.PI) / 180);
+    }
+}
+
+function cot() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'cot(' + dis.value + ')';
+    if (mode == 'RAD') {
+        dis.value = 1 / Math.tan(dis.value);
+    } else {
+        dis.value = 1 / Math.tan((dis.value * Math.PI) / 180);
+    }
+}
+
+
 var btnCount = 1;
 function changeBtn() {
     if (btnCount % 2 === 0) {
