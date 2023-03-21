@@ -53,6 +53,33 @@ function pop() {
 }
 // **********************************************************************************************
 
+function sqr() {
+    if (document.getElementById('sqr').innerHTML == 'x<sup>3</sup>') {
+        upper.value = 'cube(' + dis.value + ')';
+        dis.value = Math.pow(dis.value, 3);
+    } else {
+        upper.value = 'sqr(' + dis.value + ')';
+        dis.value = Math.pow(dis.value, 2);
+    }
+}
+
+function inverse() {
+    upper.value = '1/(' + dis.value + ')';
+    dis.value = 1 / dis.value;
+}
+
+function expo() {
+    if (dis.value != '') {
+        const fE = parseFloat(dis.value);
+        dis.value = fE.toExponential();
+    } else {
+        const fE = 0;
+        dis.value = fE.toExponential();
+    }
+}
+
+// **********************************************************************************************
+
 function answer() {
     try {
         upper.value = dis.value + '=';
