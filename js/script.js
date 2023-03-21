@@ -62,6 +62,12 @@ function ms() {
     console.log(marr);
 }
 
+// Memory restore
+function mr() {
+    dis.value = marr[marr.length - 1];
+    console.log(marr);
+}
+
 //  Memory Clear
 function mc() {
     marr.splice(0, marr.length);
