@@ -70,6 +70,19 @@ function mc() {
     document.querySelector('#m').disabled = true;
 }
 
+// memory plus
+function mplus() {
+    marr[marr.length - 1] += parseFloat(dis.value);
+    console.log(marr);
+}
+
+// memory minus
+function mminus() {
+    marr[marr.length - 1] -= parseFloat(dis.value);
+    console.log(marr);
+}
+
+
 // Memory
 function m() {
     let html = "<table>";
