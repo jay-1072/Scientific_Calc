@@ -104,6 +104,16 @@ function factorial() {
 }
 // **********************************************************************************************
 
+function xtoy() {
+    if (document.getElementById('expo').innerHTML == 'x<sup>y</sup>') {
+        dis.value += '**';
+    } else {
+        dis.value = dis.value + "**(1/";
+    }
+}
+
+// **********************************************************************************************
+
 function answer() {
     try {
         upper.value = dis.value + '=';
