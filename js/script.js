@@ -126,6 +126,29 @@ function tentox() {
 }
 // **********************************************************************************************
 
+let num = 0, base = 0, flag = true;
+function log() {
+    if (document.getElementById('log').innerHTML == 'log') {
+        upper.value = 'log(' + dis.value + ')';
+        dis.value = Math.log10(dis.value);
+    }
+    else {
+        if (flag) {
+            num = dis.value;
+            upper.value = num + ' log base ';
+            dis.value = '';
+        }
+        else if (!flag) {
+            base = dis.value;
+            upper.value += dis.value;
+            dis.value = Math.log(num) / Math.log(base);
+        }
+        flag = !flag;
+    }
+
+}
+// **********************************************************************************************
+
 function answer() {
     try {
         upper.value = dis.value + '=';
