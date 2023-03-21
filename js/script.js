@@ -15,6 +15,27 @@ function display(val) {
 }
 // **********************************************************************************************
 
+var btnCount = 1;
+function changeBtn() {
+    if (btnCount % 2 === 0) {
+        document.getElementById('sqr').innerHTML = 'x<sup>2</sup>';
+        document.getElementById('root').innerHTML = '2&#x221A;x';
+        document.getElementById('expo').innerHTML = 'x<sup>y</sup>';
+        document.getElementById('tenpow').innerHTML = '10<sup>x</sup>';
+        document.getElementById('log').innerHTML = 'log';
+        document.getElementById('ln').innerHTML = 'ln';
+        btnCount++;
+    } else {
+        document.getElementById('sqr').innerHTML = 'x<sup>3</sup>';
+        document.getElementById('root').innerHTML = '3&#x221A;x';
+        document.getElementById('expo').innerHTML = 'y&#x221A;x';
+        document.getElementById('tenpow').innerHTML = '2<sup>x</sup>';
+        document.getElementById('log').innerHTML = 'log<sub>y</sub>x';
+        document.getElementById('ln').innerHTML = 'e<sup>x</sup>';
+        btnCount++;
+    }
+}
+
 // ****************************************** ROW: 1 ********************************************
 function dlt() {
     if (dis.value == '') {
