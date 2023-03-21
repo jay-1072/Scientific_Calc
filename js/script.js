@@ -114,6 +114,18 @@ function xtoy() {
 
 // **********************************************************************************************
 
+function tentox() {
+    if (document.getElementById('tenpow').innerHTML == '10<sup>x</sup>') {
+        upper.value = '10^(' + dis.value + ')';
+        dis.value = Math.pow(10, dis.value);
+    } else {
+        upper.value = '2^(' + dis.value + ')';
+        dis.value = Math.pow(2, dis.value);
+    }
+
+}
+// **********************************************************************************************
+
 function answer() {
     try {
         upper.value = dis.value + '=';
