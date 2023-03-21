@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+/* 
+body {
+    margin: 0;
+    padding: 0;
+} */
+
+.container  {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    background-color: rgb(240, 240, 240);
+    width: 42vw;
+    min-height: 90vh;
+}
+
+.memory-div {
+    width: 42vw;
+    margin:auto;
+    min-height: 32vh;
+}
+
+button.btn {
+    background-color: rgb(245, 245, 244);
+    width: inherit;
+    height: 61px;
+    padding: 0;
+    margin: 0;
+    border-radius: 0px;
+}
+
+.col {
+    width: 96px;
+    height: 67px;
+    padding: 0;
+}
+
+button.color-white {
+    background-color: white;
+    font-weight: 900;
+}
+/* 
+.row {
+    justify-content: space-between;
+} */
+
+.fun-container, .inverse-trig, .hyperbolic-trig, .trig-container  {
+    width: 10vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.trig-container {
+    width: 14vw;
+}
+
+.dropdown-menu {
+    border: 2px solid black;
+}
+
+button.dropdown-item {
+    width: 50px;
+    height: 40px;
+}
+
+div.trig-fun-drp-dwn {
+    display: flex;
+    /* align-content: flex-start; */
+}
+
+button.trig-btn, button.fun-btn {
+    min-width: 13.5vw;
+    margin-left: 20px;
+}
+
+div.small-col {
+    width: 6vw;
+}

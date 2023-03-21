@@ -15,6 +15,349 @@
 
 <body>
 
+    <div class="calculator-grid">
+        <div class="container">
+
+            <div class="screen">
+                <textarea rows="2" cols="60" id="subtext"
+                    style="min-width: 40.5vw; max-width: 40.5vw; max-height: 100px; resize: none; background-color: rgb(240, 240, 240);; text-align: right; border: none;"
+                    disabled></textarea>
+                <textarea rows="4" cols="60" id="result"
+                    style="max-width: 40.5vw; max-height: 100px; resize: none; background-color: rgb(240, 240, 240);; text-align: right; border: none; font-size: 30px; color: black;"
+                    placeholder="0" disabled></textarea>
+                <hr>
+            </div>
+
+            <div class="row" style="display: flex; justify-content: flex-start;">
+                <div class="col-1 p-0 ms-2 mb-2 small-col text-center">
+                    <button type="button" class="btn" id="btntxt">DEG</button>
+                </div>
+                <div class=" col-1 ms-2 mb-2 small-col text-center">
+                    <button type="button" class="btn">F-E</button>
+                    <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off"">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col small-col text-center">
+                    <button type="button" class="btn" id="mc" disabled>MC</button>
+                </div>
+                <div class="col small-col text-center">
+                    <button type="button" class="btn" id="mr" disabled>MR</button>
+                </div>
+                <div class="col small-col text-center">
+                    <button type="button" class="btn">M+</button>
+                </div>
+                <div class="col small-col text-center">
+                    <button type="button" class="btn">M-</button>
+                </div>
+                <div class="col small-col text-center">
+                    <button type="button" class="btn">MS</button>
+                </div>
+                <div class="col small-col text-center">
+                    <button class="btn" type="button" id="m" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" disabled>M <i
+                            class="fa fa-angle-down" aria-hidden="true"></i></button>
+
+                    <div class="offcanvas offcanvas-bottom memory-div text-center" tabindex="-1" id="offcanvasBottom"
+                        aria-labelledby="offcanvasBottomLabel">
+                        <div class="offcanvas-body small" id="memory"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="trig-fun">
+
+                <!-- Trigonometry dropdown -->
+                <div class="dropdown trig-fun-drp-dwn">
+                    <button class="btn dropdown-toggle my-2 trig-btn" type="button" data-bs-auto-close="outside"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        &#9698;&nbsp;Trigonometry
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <!-- first container sin cos tan -->
+                        <div class="flex-container trig-container">
+                            <div class="text-center">
+                                <!-- sub dropdown for inverse trigonometry -->
+                                <li class="dropend">
+                                    <button type="button" id="second1" class="btn dropdown-item dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">2<sup>nd</sup>
+                                    </button>
+
+                                    <ul class="dropdown-menu">
+                                        <!-- first sub container for sin-1 cos-1 tan-1 -->
+                                        <div class="flex-container inverse-trig">
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >sin<sup>-1</sup></button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >cos<sup>-1</sup></button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >tan<sup>-1</sup></button></li>
+                                            </div>
+                                        </div>
+                                        <!-- second sub container for sec-1 csc-1 cot-1 -->
+                                        <div class="flex-container inverse-trig mt-2">
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >sec<sup>-1</sup></button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >csc<sup>-1</sup></button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                       >cot<sup>-1</sup></button></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </div>
+                            <!-- sub dropdown ends here -->
+
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item" >sin</button></li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">cos</button></li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item" >tan</button></li>
+                            </div>
+                        </div>
+
+                        <!-- second container for sec, csc, cot -->
+                        <div class="flex-container trig-container mt-2">
+                            <div class="text-center">
+                                <!-- sub dropdown for hyperbolic trigonometry -->
+                                <li class="dropend">
+                                    <button type="button" id="second" class="btn dropdown-item dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">hyp</button>
+                                    <ul class="dropdown-menu">
+                                        <!-- first sub container for sinh cosh tanh -->
+                                        <div class="flex-container hyperbolic-trig">
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >sinh</button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >cosh</button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                        >tanh</button></li>
+                                            </div>
+                                        </div>
+                                        <!-- first sub container for sech csch coth -->
+                                        <div class="flex-container hyperbolic-trig mt-2">
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                      >sech</button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                       >csch</button></li>
+                                            </div>
+                                            <div class="text-center">
+                                                <li><button type="button" class="btn dropdown-item"
+                                                      >coth</button></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">sec</button></li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">csc</button></li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">cot</button></li>
+                            </div>
+                        </div>
+                    </ul>
+
+                    <!-- dropdown for function floor, ceil etc... -->
+                    <button class="btn dropdown-toggle my-2 fun-btn" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="margin-left: 60px;">&#x192;&nbsp;
+                        Function</button>
+
+                    <ul class="dropdown-menu">
+                        <!-- first container for |x|,⌊x⌋,⌈x⌉  -->
+                        <div class="flex-container fun-container">
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">|x|</button>
+                                </li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">⌊x⌋</button></li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">⌈x⌉</button></li>
+                            </div>
+                        </div>
+
+                        <!-- second container for rand, dms and deg -->
+                        <div class="flex-container fun-container mt-2">
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">rand</button></li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">&#x2192;dms</button>
+                                </li>
+                            </div>
+                            <div class="text-center">
+                                <li><button type="button" class="btn dropdown-item">&#x2192;deg</button>
+                                </li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn">2<sup>nd</sup></button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">π</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">e</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">C</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn"><i class="fa fa-delete-left"></i></button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn" id="sqr">x<sup>2</sup></button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">1/x</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">|x|</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">exp</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">mod</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn" id="root">2&#x221A;x</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">(</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">)</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">n!</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">÷</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn" id="expo">x<sup>y</sup></button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">7</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">8</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">9</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">×</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn" id="tenpow">10<sup>x</sup></button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">4</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">5</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">6</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">–</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn" id="log">log</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">1</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">2</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">3</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn" id="ln">ln</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white"
+                        ><sup>+</sup>/<sub>-</sub></button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">0</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn color-white">.</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" class="btn" style="background-color: rgb(0, 90, 158);"
+                        >=</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
