@@ -170,6 +170,50 @@ function coti() {
     }
 }
 
+
+// hyp INSIDE TRIGOMOMETRY
+function sinh() {
+    upper.value = 'sinh(' + dis.value + ')';
+    dis.value = Math.sinh(dis.value);
+}
+
+function cosh() {
+    upper.value = 'cosh(' + dis.value + ')';
+    dis.value = Math.cosh(dis.value);
+}
+
+function tanh() {
+    upper.value = 'tanh(' + dis.value + ')';
+    dis.value = Math.tanh(dis.value);
+}
+
+function sech() {
+    upper.value = 'sech(' + dis.value + ')';
+    dis.value = 1 / Math.cosh(dis.value);
+}
+
+function cosech() {
+    upper.value = 'cosech(' + dis.value + ')';
+    if (dis.value == '0') {
+        dis.value = 'Cannot divide by zero';
+    }
+    else {
+        dis.value = 1 / Math.sinh(dis.value);
+    }
+}
+
+function coth() {
+    upper.value = 'coth(' + dis.value + ')';
+    if (dis.value == '0') {
+        dis.value = 'Cannot divide by zero';
+    }
+    else {
+        dis.value = 1 / Math.tanh(dis.value);
+    }
+}
+// **********************************************************************************************
+
+
 var btnCount = 1;
 function changeBtn() {
     if (btnCount % 2 === 0) {
