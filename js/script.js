@@ -70,6 +70,19 @@ function mc() {
     document.querySelector('#m').disabled = true;
 }
 
+// Memory
+function m() {
+    let html = "<table>";
+    for (var i = marr.length - 1; i >= 0; i--) {
+        html += "<tr>";
+        html += "<td>" + marr[i] + "</td>";
+        html += "</tr>";
+    }
+    html += "</table>";
+    document.getElementById('memory').innerHTML = html;
+}
+// ************************************************************************************
+
 
 // INSIDE TRIGONOMETRY
 function sin() {
