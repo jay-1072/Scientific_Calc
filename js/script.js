@@ -23,6 +23,30 @@ function textChange() {
         document.getElementById("btntxt").innerHTML = 'DEG';
 }
 
+let checkedCnt = 0;
+function fe() {
+    if(checkedCnt%2==0) {
+        document.getElementById("btn-check").checked = true;
+        changeBtn = 1;
+    }
+    else if(checkedCnt%2==1) {
+        document.getElementById("btn-check").checked = false;
+        changeBtn = 0;
+    }
+    
+    var cb = document.getElementById('btn-check');
+    if (cb.checked == true) {
+        if (dis.value != '') {
+            const fE = parseFloat(dis.value);
+            dis.value = fE.toExponential();
+        } else {
+            const fE = 0;
+            dis.value = fE.toExponential();
+        }
+    }
+}
+// ************************************************************************************************
+
 
 // INSIDE TRIGONOMETRY
 function sin() {
