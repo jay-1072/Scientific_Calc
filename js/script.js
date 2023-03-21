@@ -15,6 +15,14 @@ function display(val) {
 }
 // **********************************************************************************************
 
+function textChange() {
+    let btntxt = document.getElementById("btntxt").innerHTML;
+    if (btntxt == 'DEG')
+        document.getElementById("btntxt").innerHTML = 'RAD';
+    else
+        document.getElementById("btntxt").innerHTML = 'DEG';
+}
+
 
 // INSIDE TRIGONOMETRY
 function sin() {
