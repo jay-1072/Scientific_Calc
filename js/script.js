@@ -80,6 +80,30 @@ function expo() {
 
 // **********************************************************************************************
 
+function sqroot() {
+    if (document.getElementById('root').innerHTML == '2√x') {
+        upper.value = '√(' + dis.value + ')';
+        dis.value = Math.sqrt(dis.value);
+    } else {
+        upper.value = 'cuberoot(' + dis.value + ')';
+        dis.value = Math.pow(dis.value, 1 / 3);
+    }
+}
+
+function factorial() {
+    upper.value = 'fact(' + dis.value + ')';
+    let fact = 1;
+    if (dis.value == 0 || dis.value == 1) {
+        fact = 1;
+    } else {
+        for (let i = 1; i <= dis.value; i++) {
+            fact *= i;
+        }
+    }
+    dis.value = fact;
+}
+// **********************************************************************************************
+
 function answer() {
     try {
         upper.value = dis.value + '=';
