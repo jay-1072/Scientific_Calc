@@ -149,6 +149,16 @@ function log() {
 }
 // **********************************************************************************************
 
+function ln() {
+    if (document.getElementById('ln').innerHTML == 'ln') {
+        upper.value = 'ln(' + dis.value + ')';
+        dis.value = Math.log(dis.value);
+    } else {
+        upper.value = 'e^(' + dis.value + ')';
+        dis.value = Math.pow(Math.E, dis.value);
+    }
+}
+
 function answer() {
     try {
         upper.value = dis.value + '=';
