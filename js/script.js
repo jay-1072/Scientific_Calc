@@ -78,6 +78,98 @@ function cot() {
 }
 
 
+function inv_RAD_DEG(val) {
+    return ((val * 180) * (Math.PI ** -1));
+}
+
+// 2nd INSIDE TRIGONOMETRY
+function sini() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'sin-1(' + dis.value + ')';
+
+    if (dis.value >= -1 && dis.value <= 1) {
+        if (mode == 'RAD') {
+            dis.value = Math.asin(dis.value);
+        } else {
+            dis.value = inv_RAD_DEG(Math.asin(dis.value));
+        }
+    }
+    else {
+        dis.value = "Enter value between -1 and 1";
+    }
+
+}
+
+function cosi() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'cos-1(' + dis.value + ')';
+
+    if (dis.value >= -1 && dis.value <= 1) {
+        if (mode == 'RAD') {
+            dis.value = Math.acos(dis.value);
+        } else {
+            dis.value = inv_RAD_DEG(Math.acos(dis.value));
+        }
+    }
+    else {
+        dis.value = "Enter value between -1 and 1";
+    }
+}
+
+function tani() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'tan-1(' + dis.value + ')';
+
+    if (mode == 'RAD') {
+        dis.value = Math.atan(dis.value);
+    } else {
+        dis.value = inv_RAD_DEG(Math.atan(dis.value));
+    }
+}
+
+function seci() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'sec-1(' + dis.value + ')';
+
+    if (dis.value > -1 && dis.value < 1) {
+        dis.value = "Invalid Input";
+    }
+    else {
+        if (mode == 'RAD') {
+            dis.value = Math.acos(1 / dis.value);
+        } else {
+            dis.value = inv_RAD_DEG(Math.acos(1 / dis.value));
+        }
+    }
+}
+
+function coseci() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'cosec-1(' + dis.value + ')';
+
+    if (dis.value > -1 && dis.value < 1) {
+        dis.value = "Invalid Input";
+    }
+    else {
+        if (mode == 'RAD') {
+            dis.value = Math.asin(1 / dis.value);
+        } else {
+            dis.value = inv_RAD_DEG(Math.asin(1 / dis.value));
+        }
+    }
+}
+
+function coti() {
+    let mode = document.getElementById("btntxt").innerHTML;
+    upper.value = 'cot-1(' + dis.value + ')';
+
+    if (mode == 'RAD') {
+        dis.value = Math.atan(1 / dis.value);
+    } else {
+        dis.value = inv_RAD_DEG(Math.atan(1 / dis.value));
+    }
+}
+
 var btnCount = 1;
 function changeBtn() {
     if (btnCount % 2 === 0) {
