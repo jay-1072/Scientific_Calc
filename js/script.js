@@ -213,6 +213,26 @@ function coth() {
 }
 // **********************************************************************************************
 
+// ********************************** INSIDE FUNCTION *******************************************
+function absolute() {
+    upper.value = 'abs(' + dis.value + ')';
+    dis.value = Math.abs(dis.value);
+}
+
+function ceil() {
+    upper.value = 'ceil(' + dis.value + ')';
+    dis.value = Math.ceil(dis.value);
+}
+
+function floor() {
+    upper.value = 'floor(' + dis.value + ')';
+    dis.value = Math.floor(dis.value);
+}
+
+function rand() {
+    dis.value = Math.random(dis.value);
+}
+
 
 var btnCount = 1;
 function changeBtn() {
