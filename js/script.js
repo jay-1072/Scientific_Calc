@@ -159,6 +159,13 @@ function ln() {
     }
 }
 
+function plusminus() {
+    if (dis.value > 0)
+        dis.value = 0 - dis.value;
+    else
+        dis.value = Math.abs(dis.value);
+}
+
 function answer() {
     try {
         upper.value = dis.value + '=';
