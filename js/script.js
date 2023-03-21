@@ -48,6 +48,29 @@ function fe() {
 // ************************************************************************************************
 
 
+// Memory store
+function ms() {
+    if (dis.value == '') {
+        marr.push(0);
+    }
+    if (marr[marr.length - 1] != dis.value && marr[marr.length - 1] !=parseFloat(dis.value)) {
+        marr.push(parseFloat(dis.value));
+    }
+    document.querySelector('#mc').disabled = false;
+    document.querySelector('#mr').disabled = false;
+    document.querySelector('#m').disabled = false;
+    console.log(marr);
+}
+
+//  Memory Clear
+function mc() {
+    marr.splice(0, marr.length);
+    document.querySelector('#mc').disabled = true;
+    document.querySelector('#mr').disabled = true;
+    document.querySelector('#m').disabled = true;
+}
+
+
 // INSIDE TRIGONOMETRY
 function sin() {
     let mode = document.getElementById("btntxt").innerHTML;
