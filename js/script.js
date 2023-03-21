@@ -233,6 +233,18 @@ function rand() {
     dis.value = Math.random(dis.value);
 }
 
+function dms() {
+    upper.value = "dms(" + dis.value + ")";
+    let degree = Math.floor(dis.value);
+    let minutes = ((dis.value - Math.floor(dis.value)) * 60.0);
+    let seconds = (minutes - Math.floor(minutes)) * 60.0;
+    dis.value = degree + "." + Math.floor(minutes) + seconds.toFixed(0);
+}
+
+function deg() {
+
+}
+// **********************************************************************************************
 
 var btnCount = 1;
 function changeBtn() {
