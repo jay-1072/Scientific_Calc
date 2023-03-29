@@ -124,6 +124,10 @@ document.getElementById("second1").addEventListener("click", function (e) {
 
 // INSIDE TRIGONOMETRY
 function sin() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'sin(' + dis.value + ')';
     if (mode == 'RAD') {
@@ -134,6 +138,10 @@ function sin() {
 }
 
 function cos() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'cos(' + dis.value + ')';
     if (mode == 'RAD') {
@@ -144,6 +152,10 @@ function cos() {
 }
 
 function tan() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'tan(' + dis.value + ')';
     if (mode == 'RAD') {
@@ -154,6 +166,10 @@ function tan() {
 }
 
 function sec() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'sec(' + dis.value + ')';
     if (mode == 'RAD') {
@@ -164,6 +180,10 @@ function sec() {
 }
 
 function cosec() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'cosec(' + dis.value + ')';
     if (mode == 'RAD') {
@@ -174,6 +194,10 @@ function cosec() {
 }
 
 function cot() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'cot(' + dis.value + ')';
     if (mode == 'RAD') {
@@ -191,6 +215,10 @@ function inv_RAD_DEG(val) {
 
 // 2nd INSIDE TRIGONOMETRY
 function sinInverse() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'sin-1(' + dis.value + ')';
 
@@ -208,6 +236,10 @@ function sinInverse() {
 }
 
 function cosInverse() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'cos-1(' + dis.value + ')';
 
@@ -224,6 +256,10 @@ function cosInverse() {
 }
 
 function tanInverse() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'tan-1(' + dis.value + ')';
 
@@ -235,6 +271,10 @@ function tanInverse() {
 }
 
 function secInverse() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'sec-1(' + dis.value + ')';
 
@@ -251,6 +291,10 @@ function secInverse() {
 }
 
 function cosecInverse() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'cosec-1(' + dis.value + ')';
 
@@ -267,6 +311,10 @@ function cosecInverse() {
 }
 
 function cotInverse() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let mode = document.getElementById("btntxt").innerHTML;
     upper.value = 'cot-1(' + dis.value + ')';
 
@@ -281,26 +329,46 @@ function cotInverse() {
 
 // hyp INSIDE TRIGOMOMETRY
 function sinh() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     upper.value = 'sinh(' + dis.value + ')';
     dis.value = Math.sinh(dis.value);
 }
 
 function cosh() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     upper.value = 'cosh(' + dis.value + ')';
     dis.value = Math.cosh(dis.value);
 }
 
 function tanh() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     upper.value = 'tanh(' + dis.value + ')';
     dis.value = Math.tanh(dis.value);
 }
 
 function sech() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     upper.value = 'sech(' + dis.value + ')';
     dis.value = 1 / Math.cosh(dis.value);
 }
 
 function cosech() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     upper.value = 'cosech(' + dis.value + ')';
     if (dis.value == '0') {
         dis.value = 'Cannot divide by zero';
@@ -311,6 +379,10 @@ function cosech() {
 }
 
 function coth() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+    
     upper.value = 'coth(' + dis.value + ')';
     if (dis.value == '0') {
         dis.value = 'Cannot divide by zero';
@@ -323,7 +395,7 @@ function coth() {
 
 // ********************************** INSIDE FUNCTION *******************************************
 function absolute() {
-    upper.value = 'abs(' + dis.value + ')';
+    upper.value = 'abs(' + dis.value + ')=';
 
     if(dis.value=='Error!') {
         return false;
@@ -334,20 +406,35 @@ function absolute() {
 }
 
 function ceil() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     upper.value = 'ceil(' + dis.value + ')';
     dis.value = Math.ceil(dis.value);
 }
 
 function floor() {
+    if(dis.value=='Error!') {
+        return false;
+    }
+    
     upper.value = 'floor(' + dis.value + ')';
     dis.value = Math.floor(dis.value);
 }
 
 function rand() {
+   
+    upper.value = '';
     dis.value = Math.random(dis.value);
 }
 
 function degreeMinuteSecond() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+    
     upper.value = "dms(" + dis.value + ")";
     let degree = Math.floor(dis.value);
     let minutes = ((dis.value - Math.floor(dis.value)) * 60.0);
@@ -399,6 +486,11 @@ function pop() {
 // ******************************************* 2nd row ******************************************
 
 function sqr() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     if (document.getElementById('sqr').innerHTML == 'x<sup>3</sup>') {
         upper.value = 'cube(' + dis.value + ')';
         dis.value = Math.pow(dis.value, 3);
@@ -415,11 +507,19 @@ function inverse() {
     if(dis.value=='Error!') {
         return false;
     }
-    else if(isNaN(1/dis.value)) {
-        dis.value = 'Error!';
-    }
     else {
-        dis.value = 1 / dis.value;
+        try{
+            if(Number.isFinite(eval(upper.value.slice(0, -1)))) {
+                dis.value = eval(upper.value.slice(0, -1));
+            }
+            else {
+                dis.value = 'Error!';
+            }
+            
+        }
+        catch {
+            dis.value = 'Error!';
+        }
     }
 }
 
@@ -443,6 +543,11 @@ function expo() {
 // ******************************************** 3rd row *****************************************
 
 function sqroot() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     if (document.getElementById('root').innerHTML == '2√x') {
         upper.value = '√(' + dis.value + ')';
         dis.value = Math.sqrt(dis.value);
@@ -473,6 +578,11 @@ function factorial() {
 // ********************************************* 4th row ****************************************
 
 function xtoy() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     if (document.getElementById('expo').innerHTML == 'x<sup>y</sup>') {
         dis.value += '^';
     } else {
@@ -485,6 +595,11 @@ function xtoy() {
 // ********************************************** 5th row ***************************************
 
 function tentox() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     if (document.getElementById('tenpow').innerHTML == '10<sup>x</sup>') {
         upper.value = '10^(' + dis.value + ')';
         dis.value = Math.pow(10, dis.value);
@@ -498,6 +613,11 @@ function tentox() {
 
 let num = 0, base = 0, flag = true;
 function log() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     if (document.getElementById('log').innerHTML == 'log') {
         upper.value = 'log(' + dis.value + ')';
         dis.value = Math.log10(dis.value);
@@ -520,6 +640,11 @@ function log() {
 // *********************************************** 7th row*****************************************
 
 function ln() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     if (document.getElementById('ln').innerHTML == 'ln') {
         upper.value = 'ln(' + dis.value + ')';
         dis.value = Math.log(dis.value);
@@ -530,6 +655,11 @@ function ln() {
 }
 
 function plusminus() {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     if (dis.value > 0)
         dis.value = 0 - dis.value;
     else
@@ -565,7 +695,13 @@ function answer() {
             x = substrArr[0] + ' ** (' + rightOprand + ')';
         }
        
-        var y = eval(x);
+        var y;
+        if(Number.isFinite(eval(x))) {
+            y = eval(x);
+        }
+        else {
+            y = 'Error!';
+        }
 
     } catch {
         error = 'Error!';
