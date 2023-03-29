@@ -41,22 +41,22 @@
 
             <div class="row">
                 <div class="col small-col text-center">
-                    <button type="button" class="btn" id="mc" onclick="mc()" disabled>MC</button>
+                    <button type="button" class="btn" id="mc" onclick="memoryClear()" disabled>MC</button>
                 </div>
                 <div class="col small-col text-center">
-                    <button type="button" class="btn" id="mr" onclick="mr()" disabled>MR</button>
+                    <button type="button" class="btn" id="mr" onclick="memoryRead()" disabled>MR</button>
                 </div>
                 <div class="col small-col text-center">
-                    <button type="button" class="btn" onclick="mplus()">M+</button>
+                    <button type="button" class="btn" onclick="memoryPlus()">M+</button>
                 </div>
                 <div class="col small-col text-center">
-                    <button type="button" class="btn" onclick="mminus()">M-</button>
+                    <button type="button" class="btn" onclick="memoryMinus()">M-</button>
                 </div>
                 <div class="col small-col text-center">
-                    <button type="button" class="btn" onclick="ms()">MS</button>
+                    <button type="button" class="btn" onclick="memoryStore()">MS</button>
                 </div>
                 <div class="col small-col text-center">
-                    <button class="btn" type="button" id="m" onclick="m()" data-bs-toggle="offcanvas"
+                    <button class="btn" type="button" id="m" onclick="createMemoryTable()" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" disabled>M <i
                             class="fa fa-angle-down" aria-hidden="true"></i></button>
 
@@ -94,30 +94,30 @@
                                         <div class="flex-container inverse-trig">
                                             <div class="text-center">
                                                 <li><button type="button" class="btn dropdown-item"
-                                                    onclick="sini()">sin<sup>-1</sup></button></li>
+                                                    onclick="sinInverse()">sin<sup>-1</sup></button></li>
                                             </div>
                                             <div class="text-center">
                                                 <li><button type="button" class="btn dropdown-item"
-                                                    onclick="cosi()">cos<sup>-1</sup></button></li>
+                                                    onclick="cosInverse()">cos<sup>-1</sup></button></li>
                                             </div>
                                             <div class="text-center">
                                                 <li><button type="button" class="btn dropdown-item"
-                                                    onclick="tani()">tan<sup>-1</sup></button></li>
+                                                    onclick="tanInverse()">tan<sup>-1</sup></button></li>
                                             </div>
                                         </div>
                                         <!-- second sub container for sec-1 csc-1 cot-1 -->
                                         <div class="flex-container inverse-trig mt-2">
                                             <div class="text-center">
                                                 <li><button type="button" class="btn dropdown-item"
-                                                    onclick="seci()">sec<sup>-1</sup></button></li>
+                                                    onclick="secInverse()">sec<sup>-1</sup></button></li>
                                             </div>
                                             <div class="text-center">
                                                 <li><button type="button" class="btn dropdown-item"
-                                                    onclick="coseci()">csc<sup>-1</sup></button></li>
+                                                    onclick="cosecInverse()">csc<sup>-1</sup></button></li>
                                             </div>
                                             <div class="text-center">
                                                 <li><button type="button" class="btn dropdown-item"
-                                                    onclick="coti()">cot<sup>-1</sup></button></li>
+                                                    onclick="cotInverse()">cot<sup>-1</sup></button></li>
                                             </div>
                                         </div>
                                     </ul>
@@ -215,7 +215,7 @@
                                 <li><button type="button" class="btn dropdown-item" onclick="rand()">rand</button></li>
                             </div>
                             <div class="text-center">
-                                <li><button type="button" class="btn dropdown-item" onclick="dms()">&#x2192;dms</button>
+                                <li><button type="button" class="btn dropdown-item" onclick="degreeMinuteSecond()">&#x2192;dms</button>
                                 </li>
                             </div>
                             <div class="text-center">
