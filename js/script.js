@@ -6,6 +6,11 @@ let op = ['+', '-', '*', '/', '%', '.'];
 
 // ****************************************** DISPLAY INTO SCREEN **********************************
 function display(val) {
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+
     let oldop = dis.value.slice(-1);
     if (op.includes(val) && op.includes(oldop)) {
         dis.value = dis.value.slice(0, -1);
@@ -13,6 +18,10 @@ function display(val) {
     } else if(val==Math.E && upper.value.slice(-1)=='=') {
         upper.value = '';
         dis.value = Math.E;
+    }
+    else if(val==Math.PI && upper.value.slice(-1)=='=') {
+        upper.value = '';
+        dis.value = Math.PI;
     }
     else {
         dis.value += val;
@@ -230,7 +239,7 @@ function secInverse() {
     upper.value = 'sec-1(' + dis.value + ')';
 
     if (dis.value > -1 && dis.value < 1) {
-        dis.value = "Invalid Input";
+        dis.value = "Invalid input";
     }
     else {
         if (mode == 'RAD') {
@@ -246,7 +255,7 @@ function cosecInverse() {
     upper.value = 'cosec-1(' + dis.value + ')';
 
     if (dis.value > -1 && dis.value < 1) {
-        dis.value = "Invalid Input";
+        dis.value = "Invalid input";
     }
     else {
         if (mode == 'RAD') {
@@ -315,8 +324,9 @@ function coth() {
 // ********************************** INSIDE FUNCTION *******************************************
 function absolute() {
     upper.value = 'abs(' + dis.value + ')';
-    if(isNaN(1/dis.value)) {
-        dis.value = 'Invalid input';
+
+    if(dis.value=='Error!') {
+        return false;
     }
     else {
         dis.value = Math.abs(dis.value);
@@ -399,9 +409,14 @@ function sqr() {
 }
 
 function inverse() {
+
     upper.value = '1/(' + dis.value + ')=';
-    if(isNaN(1/dis.value)) {
-        dis.value = 'Invalid input';
+
+    if(dis.value=='Error!') {
+        return false;
+    }
+    else if(isNaN(1/dis.value)) {
+        dis.value = 'Error!';
     }
     else {
         dis.value = 1 / dis.value;
@@ -409,16 +424,15 @@ function inverse() {
 }
 
 function expo() {
-    if (dis.value != '') {
 
-        if(dis.value=='Error!') {
-            upper.value = "exp(" + dis.value + ")" ;
-            dis.value = 'Invalid Input';
-        }
-        else {
-            const fE = parseFloat(dis.value);
-            dis.value = fE.toExponential();
-        }
+    if(dis.value=='Error!') {
+        return false;
+    }
+
+    if (dis.value != '') {
+        const fE = parseFloat(dis.value);
+        dis.value = fE.toExponential();
+    
     } else {
         const fE = 0;
         dis.value = fE.toExponential();
@@ -439,16 +453,22 @@ function sqroot() {
 }
 
 function factorial() {
-    upper.value = 'fact(' + dis.value + ')';
-    let fact = 1;
-    if (dis.value == 0 || dis.value == 1) {
-        fact = 1;
-    } else {
-        for (let i = 1; i <= dis.value; i++) {
-            fact *= i;
-        }
+    
+    if(dis.value=='Error!' || Number.parseInt(dis.value)<0) {
+        dis.value = 'Error!';
     }
-    dis.value = fact;
+    else {
+        upper.value = 'fact(' + dis.value + ')';
+        let fact = 1;
+        if (dis.value == 0 || dis.value == 1) {
+            fact = 1;
+        } else {
+            for (let i = 1; i <= dis.value; i++) {
+                fact *= i;
+            }
+        }
+        dis.value = fact;
+    }
 }
 // ********************************************* 4th row ****************************************
 
@@ -520,6 +540,11 @@ function plusminus() {
 
 
 function answer() {
+
+    if(dis.value=='Error!' || dis.value=='Invalid input') {
+        return false;
+    }
+
     let cb = document.getElementById('btn-check');
     let error = '';
     try {
