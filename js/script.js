@@ -565,7 +565,7 @@ function sqroot() {
         dis.value = Math.sqrt(dis.value);
     } else {
         upper.value = 'cuberoot(' + dis.value + ')';
-        dis.value = Math.pow(dis.value, 1 / 3);
+        dis.value = Math.ceil(Math.pow(dis.value, 1 / 3));
     }
 }
 
