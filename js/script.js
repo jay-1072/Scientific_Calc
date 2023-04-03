@@ -15,13 +15,25 @@ function display(val) {
     if (op.includes(val) && op.includes(oldop)) {
         dis.value = dis.value.slice(0, -1);
         dis.value += val;
-    } else if(val==Math.E && upper.value.slice(-1)=='=') {
-        upper.value = '';
-        dis.value = Math.E;
+    } else if(val==Math.E) {
+        
+        if(dis.value.slice(-1)=='+' || dis.value.slice(-1)=='-' || dis.value.slice(-1)=='*' || dis.value.slice(-1)=='/' || dis.value.slice(-1)=='%') {
+            dis.value += Math.E;
+        }
+        else {
+            upper.value = '';
+            dis.value = Math.E;
+        }
     }
-    else if(val==Math.PI && upper.value.slice(-1)=='=') {
-        upper.value = '';
-        dis.value = Math.PI;
+    else if(val==Math.PI) {
+
+        if(dis.value.slice(-1)=='+' || dis.value.slice(-1)=='-' || dis.value.slice(-1)=='*' || dis.value.slice(-1)=='/' || dis.value.slice(-1)=='%') {
+            dis.value += Math.PI;
+        }
+        else {
+            upper.value = '';
+            dis.value = Math.PI;
+        }
     }
     else {
         dis.value += val;

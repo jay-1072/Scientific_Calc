@@ -42,10 +42,6 @@ button.color-white {
     background-color: white;
     font-weight: 900;
 }
-/* 
-.row {
-    justify-content: space-between;
-} */
 
 .fun-container, .inverse-trig, .hyperbolic-trig, .trig-container  {
     width: 10vw;
@@ -78,8 +74,45 @@ div.trig-fun-drp-dwn {
 button.trig-btn, button.fun-btn {
     min-width: 13.5vw;
     margin-left: 20px;
+    padding: 0;
 }
 
 div.small-col {
     width: 6vw;
+}
+
+@media screen and (min-width: 425px) and (max-width:768px) {
+    div.container {
+        min-width: fit-content;
+    }
+
+    button.trig-btn, button.fun-btn {
+        min-width: 20vw;
+        margin-left: 18px;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    div.container {
+        min-width: fit-content;
+    }
+
+    button.trig-btn, button.fun-btn {
+        min-width: 25vw;
+        margin-left: 15px;
+        padding: 0;
+    }
+
+    .dropdown-menu {
+        min-width: 25vw;
+        /* overflow: scroll; */
+        padding-left: 50px;
+        align-content: center;
+    }
+
+    button.dropdown-item {
+        width: 45px;
+        height: 40px;
+    }
 }
