@@ -5,35 +5,29 @@ let op = ['+', '-', '*', '/', '%', '.'];
 /*************************************************************************************************************************************************** */
 
 // ****************************************** DISPLAY INTO SCREEN **********************************
+var displayValue;
+
 function display(val) {
 
-    if(dis.value=='Error!') {
+    displayValue = dis.value;
+
+    if(displayValue=='Error!') {
         return false;
     }
 
-    let oldop = dis.value.slice(-1);
-    if (op.includes(val) && op.includes(oldop)) {
-        dis.value = dis.value.slice(0, -1);
-        dis.value += val;
-    } else if(val==Math.E) {
-        
-        if(dis.value.slice(-1)=='+' || dis.value.slice(-1)=='-' || dis.value.slice(-1)=='*' || dis.value.slice(-1)=='/' || dis.value.slice(-1)=='%') {
-            dis.value += Math.E;
-        }
-        else {
-            upper.value = '';
-            dis.value = Math.E;
-        }
-    }
-    else if(val==Math.PI) {
+    let oldOperator = displayValue.slice(-1);
 
-        if(dis.value.slice(-1)=='+' || dis.value.slice(-1)=='-' || dis.value.slice(-1)=='*' || dis.value.slice(-1)=='/' || dis.value.slice(-1)=='%') {
-            dis.value += Math.PI;
+    if (op.includes(val) && op.includes(oldOperator)) {
+        dis.value = displayValue.slice(0, -1) + val;
+    } 
+    else if(val==Math.PI || val==Math.E) {
+        
+        if(op.slice(0, 5).includes(oldOperator)) {
+            dis.value += val;
+            return;
         }
-        else {
-            upper.value = '';
-            dis.value = Math.PI;
-        }
+        upper.value = '';
+        dis.value = val;
     }
     else {
         dis.value += val;
@@ -55,7 +49,7 @@ function fe() {
         document.getElementById("btn-check").checked = true;
         changeBtn = 1;
     }
-    else if(checkedCnt%2==1) {
+    else {
         document.getElementById("btn-check").checked = false;
         changeBtn = 0;
     }
@@ -73,38 +67,44 @@ function fe() {
 }
 // ************************************************************************************************
 
+function disableMemory(state) {
+    document.querySelector('#mc').disabled = state;
+    document.querySelector('#mr').disabled = state;
+    document.querySelector('#m').disabled = state;
+}
+
 // Memory store
 function memoryStore() {
-    if (dis.value == '') {
+
+    displayValue = dis.value;
+
+    if (displayValue == '') {
         marr.push(0);
     }
-    if (marr[marr.length - 1] != dis.value && marr[marr.length - 1] !=parseFloat(dis.value)) {
-        marr.push(parseFloat(dis.value));
+    if (marr[marr.length - 1] != displayValue && marr[marr.length - 1] != parseFloat(displayValue)) {
+        marr.push(parseFloat(displayValue));
     }
-    document.querySelector('#mc').disabled = false;
-    document.querySelector('#mr').disabled = false;
-    document.querySelector('#m').disabled = false;
-    console.log(marr);
+    disableMemory(false);
+    // console.log(marr);
 }
 
 // Memory read
 function memoryRead() {
     dis.value = marr[marr.length - 1];
-    console.log(marr);
+    // console.log(marr);
 }
 
 //  Memory clear
 function memoryClear() {
     marr.splice(0, marr.length);
-    document.querySelector('#mc').disabled = true;
-    document.querySelector('#mr').disabled = true;
-    document.querySelector('#m').disabled = true;
+    disableMemory(true);
 }
 
 // Memory plus
 function memoryPlus() {
-    marr[marr.length - 1] += parseFloat(dis.value);
-    console.log(marr);
+    // if(dis.value!='Error')<add here>
+    marr[marr.length - 1] +=    dis.value!=''?parseFloat(dis.value):0;
+    // console.log(marr);
 }
 
 // Memory minus
