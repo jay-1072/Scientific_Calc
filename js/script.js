@@ -17,8 +17,8 @@ let op = ['+', '-', '*', '/', '%', '.'];
 /*************************************************************************************************************************************************** */
 
 // ****************************************** DISPLAY INTO SCREEN **********************************
-var displayValue, mode;
-var Error='Error!', Infinity='Infinity', NaN = 'NaN', Empty='', Invalid='Invalid input';
+var displayValue, mode, Error='Error!', Infinity='Infinity', NaN = 'NaN', Empty='', Invalid='Invalid input', Message='Enter value between -1 and 1', Alert='Cannot divide by zero', output;
+let checkedCnt = 0;
 
 function checkForErrorMessage() {
     displayValue = dis.value;
@@ -52,12 +52,10 @@ function display(val) {
 // **********************************************************************************************
 
 function textChange() {
-    btntxt.innerHTML =  btntxt.innerHTML=='DEG'?'RAD':'DEG';
+    btntxt.innerHTML =  btntxt.innerHTML=='DEG' ? 'RAD' : 'DEG';
 }
 
-let checkedCnt = 0;
 function fe() {
-
     btncheck.checked = (checkedCnt%2==0)?true:false;
     checkedCnt = (checkedCnt%2==0)?1:0;
 
@@ -119,7 +117,8 @@ function memoryPlus() {
     if(!checkForErrorMessage()) {
         return;
     }
-    marr[marr.length - 1] +=    dis.value!=''?parseFloat(dis.value):0;
+    displayValue = dis.value;
+    marr[marr.length - 1] += displayValue!=Empty ? parseFloat(displayValue) : 0;
 }
 
 // Memory minus
@@ -127,8 +126,8 @@ function memoryMinus() {
     if(!checkForErrorMessage()) {
         return;
     }
-    marr[marr.length - 1] -= parseFloat(dis.value);
-    console.log(marr);
+    displayValue = dis.value;
+    marr[marr.length - 1] -= parseFloat(displayValue);
 }
 
 // Create memory table
@@ -235,7 +234,7 @@ function sinInverse() {
         dis.value = (mode == 'RAD') ? Math.asin(displayValue) : inv_RAD_DEG(Math.asin(displayValue));
         return;
     }
-    dis.value = "Enter value between -1 and 1";
+    dis.value = Message;
 }
 
 function cosInverse() {
@@ -250,7 +249,7 @@ function cosInverse() {
         dis.value = (mode == 'RAD') ? Math.acos(displayValue) : inv_RAD_DEG(Math.acos(displayValue));
         return;
     }
-    dis.value = "Enter value between -1 and 1";
+    dis.value = Message;
 }
 
 function tanInverse() {
@@ -305,7 +304,6 @@ function cotInverse() {
 
 // ****************************************** Hyperbolic Trigonometry ****************************************
 
-// hyp INSIDE TRIGOMOMETRY
 function sinh() {
     if(!checkForErrorMessage()) {
         return;
@@ -349,7 +347,7 @@ function cosech() {
     displayValue = dis.value;
     upper.value = 'cosech(' + displayValue + ')';
 
-    dis.value = (displayValue=='0') ? 'Cannot divide by zero' : (1 / Math.sinh(displayValue));
+    dis.value = (displayValue=='0') ? Alert : (1 / Math.sinh(displayValue));
 }
 
 function coth() {
@@ -358,7 +356,7 @@ function coth() {
     }
     displayValue = dis.value;
     upper.value = 'coth(' + dis.value + ')';
-    dis.value = (displayValue=='0') ? 'Cannot divide by zero' : (1 / Math.tanh(displayValue));
+    dis.value = (displayValue=='0') ? Alert : (1 / Math.tanh(displayValue));
 }
 // **********************************************************************************************
 
@@ -452,7 +450,7 @@ function pop() {
         dis.value = upper.value =  Empty;
         return;
     }
-    dis.value = displayValue.slice(0, dis.value.length - 1);
+    dis.value = displayValue.slice(0, displayValue.length - 1);
 }
 // ******************************************* 2nd row ******************************************
 
@@ -475,11 +473,11 @@ function inverse() {
     if(!checkForErrorMessage()) {
         return;
     }
-
-    upper.value = '1/(' + dis.value + ')=';
+    displayValue = dis.value;
+    upper.value = '1/(' + displayValue + ')=';
     try{
         let inverseCalculation = eval(upper.value.slice(0, -1));
-        dis.value = Number.isFinite(inverseCalculation)?inverseCalculation:Error;
+        dis.value = Number.isFinite(inverseCalculation) ? inverseCalculation : Error;
     }
     catch {
         dis.value = Error;
@@ -487,30 +485,28 @@ function inverse() {
 }
 
 function expo() {
-
     if(!checkForErrorMessage()) {
         return;
     }
 
-    displayValue = dis.value;
-    const fE = displayValue!=Empty?parseFloat(displayValue):0;
+    displayValue = dis.value; 
+    const fE = displayValue!=Empty ? parseFloat(displayValue) : 0;
     dis.value = fE.toExponential();
 }
 
 // ******************************************** 3rd row *****************************************
 
 function sqroot() {
-
     if(!checkForErrorMessage()) {
         return;
     }
-
-    if (document.getElementById('root').innerHTML == '2√x') {
-        upper.value = '√(' + dis.value + ')';
-        dis.value = Math.sqrt(dis.value);
+    displayValue = dis.value;
+    if (_root.innerHTML == '2√x') {
+        upper.value = '√(' + displayValue + ')';
+        dis.value = Math.sqrt(displayValue);
     } else {
-        upper.value = 'cuberoot(' + dis.value + ')';
-        dis.value = Math.ceil(Math.pow(dis.value, 1 / 3));
+        upper.value = 'cuberoot(' + displayValue + ')';
+        dis.value = Math.ceil(Math.pow(displayValue, 1 / 3));
     }
 }
 
@@ -525,7 +521,8 @@ function factorial() {
     let fact = 1;
     if (displayValue == 0 || displayValue == 1) {
         fact = 1;
-    } else {
+    } 
+    else {
         for (let i = 1; i <= displayValue; i++) {
             fact *= i;
         }
@@ -538,7 +535,7 @@ function xtoy() {
     if(!checkForErrorMessage()) {
         return;
     }
-    dis.value += document.getElementById('expo').innerHTML == 'x<sup>y</sup>'?'^':" yroot ";
+    dis.value += _expo.innerHTML == 'x<sup>y</sup>' ? '^' : " yroot ";
 }
 
 // ********************************************** 5th row ***************************************
@@ -548,7 +545,7 @@ function tentox() {
         return;
     }
 
-    if (document.getElementById('tenpow').innerHTML == '10<sup>x</sup>') {
+    if (_tenpow.innerHTML == '10<sup>x</sup>') {
         upper.value = '10^(' + dis.value + ')';
         dis.value = Math.pow(10, dis.value);
     } 
@@ -567,7 +564,7 @@ function log() {
 
     displayValue = dis.value;
 
-    if (document.getElementById('log').innerHTML == 'log') {
+    if (_log.innerHTML == 'log') {
         upper.value = 'log(' + displayValue + ')';
         dis.value = Math.log10(displayValue);
     }
@@ -594,7 +591,7 @@ function ln() {
 
     displayValue = dis.value;
 
-    if (document.getElementById('ln').innerHTML == 'ln') {
+    if (_ln.innerHTML == 'ln') {
         upper.value = 'ln(' + displayValue + ')';
         dis.value = Math.log(displayValue);
     } else {
@@ -608,7 +605,7 @@ function plusminus() {
         return;
     }
     displayValue = dis.value;
-    dis.value = (displayValue>0) ? (0-displayValue) : (Math.abs(dis.value));
+    dis.value = (displayValue>0) ? (0-displayValue) : (Math.abs(displayValue));
 }
 
 // **********************************************************************************************
@@ -620,7 +617,6 @@ function answer() {
         return;
     }
 
-    let cb = document.getElementById('btn-check');
     let error = Empty;
     try {
         upper.value = displayValue + '=';
@@ -640,24 +636,11 @@ function answer() {
             x = substrArr[0] + ' ** (' + rightOprand + ')';
         }
        
-        var y;
-        if(Number.isFinite(eval(x))) {
-            y = eval(x);
-        }
-        else {
-            y = Error;
-        }
-
-    } catch {
+        output = Number.isFinite(eval(x)) ? eval(x) : Error;
+    } 
+    catch {
         error = Error;
     }
 
-    if(error==Error) {
-        dis.value = Error;
-    }
-    else if (cb.checked == true) {
-        dis.value = Number.parseFloat(y).toExponential();
-    } else {
-        dis.value = y;
-    }
+    dis.value = (error==Error) ? Error : ((btncheck.checked == true) ? Number.parseFloat(output).toExponential() : output);
 }
