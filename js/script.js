@@ -22,7 +22,6 @@ let checkedCnt = 0;
 
 window.onkeydown = (e) => { 
     const x = e.key; 
-    // console.log(x); 
     switch (x) { 
         case "0": display("0"); 
         break; 
@@ -53,8 +52,6 @@ window.onkeydown = (e) => {
         case "/": display("/"); 
         break; 
         case "%": display("%"); 
-        break; 
-        case "=": display("="); 
         break; 
         case ".": display("."); 
         break; 
@@ -685,9 +682,8 @@ function plusminus() {
 
 // **********************************************************************************************
 function answer() {
-
     displayValue = dis.value;
-
+    
     if(!checkForErrorMessage() || displayValue==Invalid) {
         return;
     }
@@ -702,8 +698,7 @@ function answer() {
         if(x.includes("^")) {
             x = x.replace('^', '**');
         }
-
-        if(x.includes("yroot")) {
+        else if(x.includes("yroot")) {
             let substrArr = x.split('yroot');
             let rightOprand = substrArr[1].trim();
             rightOprand = 1/rightOprand;
