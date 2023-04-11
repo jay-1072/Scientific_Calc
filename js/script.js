@@ -20,6 +20,81 @@ let op = ['+', '-', '*', '/', '%', '.'];
 var displayValue, mode, Error='Error!', Infinity='Infinity', NaN = 'NaN', Empty='', Invalid='Invalid input', Message='Enter value between -1 and 1', Alert='Cannot divide by zero', output;
 let checkedCnt = 0;
 
+window.onkeydown = (e) => { 
+    const x = e.key; 
+    // console.log(x); 
+    switch (x) { 
+        case "0": display("0"); 
+        break; 
+        case "1": display("1"); 
+        break; 
+        case "2": display("2"); 
+        break; 
+        case "3": display("3"); 
+        break; 
+        case "4": display("4"); 
+        break; 
+        case "5": display("5"); 
+        break; 
+        case "6": display("6"); 
+        break; 
+        case "7": display("7"); 
+        break; 
+        case "8": display("8"); 
+        break; 
+        case "9": display("9"); 
+        break; 
+        case "+": display("+"); 
+        break; 
+        case "-": display("-"); 
+        break; 
+        case "*": display("*"); 
+        break; 
+        case "/": display("/"); 
+        break; 
+        case "%": display("%"); 
+        break; 
+        case "=": display("="); 
+        break; 
+        case ".": display("."); 
+        break; 
+        case "(": display("("); 
+        break; 
+        case ")": display(")"); 
+        break; 
+        case "Backspace": pop(); 
+        break; 
+        case "e": display(Math.E); 
+        break; 
+        case "p": display(Math.PI); 
+        break; 
+        case "s": sin(); 
+        break; 
+        case "c": cos(); 
+        break; 
+        case "t": tan(); 
+        break; 
+        case "S": sinInverse(); 
+        break; 
+        case "C": cosInverse(); 
+        break; 
+        case "T": tanInverse();
+        break; 
+        case "!": factorial(); 
+        break; 
+        case "L": log(); 
+        break; 
+        case "l": ln();
+        break;
+        case "Enter": answer(); 
+        break; 
+        case "Delete": clearScreen(); 
+        break; 
+        default : /* Do nothing */ 
+        break; 
+    } 
+}
+
 function checkForErrorMessage() {
     displayValue = dis.value;
     return displayValue==Error?false:true;
@@ -436,7 +511,7 @@ function changeBtn() {
 }
 
 // ****************************************** 1st row ********************************************
-function dlt() {
+function clearScreen() {
     displayValue = dis.value;
     if (displayValue == Empty) {
         upper.value = Empty;
